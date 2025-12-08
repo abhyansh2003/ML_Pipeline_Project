@@ -18,28 +18,35 @@ def save_object(file_path, obj):
             
     except Exception as e:
         raise CustomException(e, sys)
-    
+
 def evaluate_model(X_train, y_train, X_test, y_test, models, params):
     try:
         report = {}
-        
-        for i in range(len(list(models))):
-            model = list(models.values())[i]
-            para = params[list(model.keys())[i]]
-            
-            GS = GridSearchCV(model, para, cv=5)
-            GS.fit(X_train, y_train)
-            
-            model.set_params(**GS.best_params_)
+
+        for model_name, model in models.items():
+
+            # Get parameters for this specific model
+            param_grid = params[model_name]
+
+            # Grid Search
+            gs = GridSearchCV(model, param_grid, cv=5)
+            gs.fit(X_train, y_train)
+
+            # Set best params
+            model.set_params(**gs.best_params_)
             model.fit(X_train, y_train)
-            
-            # Prediction
+
+            # Prediction & Accuracy
             y_pred = model.predict(X_test)
-            test_model_accuracy = accuracy_score(y_test, y_pred)
-            
-            report[list(models.values())[i]] = test_model_accuracy
-            
-            return report
-        
+            acc = accuracy_score(y_test, y_pred)
+
+            # Save result using model name as key
+            report[model_name] = acc
+
+        return report
+
     except Exception as e:
         raise CustomException(e, sys)
+
+
+

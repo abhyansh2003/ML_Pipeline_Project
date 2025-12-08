@@ -37,13 +37,14 @@ class ModelTrainer:
                 test_array[:, :-1], # all rows except target cols
                 test_array[:, -1] # only target Col
             )
-            
+            logging.info("Model Selection Started ...")
             model = {
                 "Random Forest": RandomForestClassifier(),
                 "Decision Tree": DecisionTreeClassifier(),
                 "Logistic": LogisticRegression()
             }
             
+            logging.info("Parameters defining ...")
             params = {
                 "Random Forest":{
                     "class_weight":["balanced"],
