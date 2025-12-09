@@ -1,0 +1,13 @@
+[2025-12-09 17:45:33,268] 23 root - INFO - Data Ingestion started
+[2025-12-09 17:45:33,268] 25 root - INFO - Data Reading started
+[2025-12-09 17:45:33,363] 27 root - INFO - Data Reading completed
+[2025-12-09 17:45:33,442] 31 root - INFO - Data splitted into train & test
+[2025-12-09 17:45:33,572] 38 root - INFO - Data Ingestion Completed
+[2025-12-09 17:45:33,750] 85 root - INFO - Outliers capped on our train data
+[2025-12-09 17:45:33,805] 90 root - INFO - Outliers capped on our train data
+[2025-12-09 17:45:33,805] 33 root - INFO -  Data Transformation Started 
+[2025-12-09 17:45:33,805] 97 root - INFO - Splitting Train data into dependent & independent features
+[2025-12-09 17:45:33,811] 101 root - INFO - Splitting Test data into dependent & independent features
+[2025-12-09 17:45:33,878] 40 root - INFO - Model Selection Started ...
+[2025-12-09 17:45:33,878] 47 root - INFO - Parameters defining ...
+[2025-12-09 17:47:13,517] 86 root - INFO - Best Model found: Random Forest, accuracy Score: 0.7875435361606228
